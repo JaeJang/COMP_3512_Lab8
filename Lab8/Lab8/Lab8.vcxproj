@@ -118,7 +118,7 @@
     <ClInclude Include="FixedLIst.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FixedList.cpp" />
+    <ClCompile Include="FixedListTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
