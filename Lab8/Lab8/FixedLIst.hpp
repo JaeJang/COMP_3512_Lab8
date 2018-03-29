@@ -14,7 +14,61 @@ public:
 	bool add(const T & t);
 	T remove(const T& t);
 	T & operator[](unsigned int index) const;
+
 private:
 	T[] list;
 };
 
+template<class T, size_t N>
+inline FixedList<T, N>::FixedList()
+{
+	list = new T[N];
+}
+
+template<class T, size_t N>
+inline FixedList<T, N>::~FixedList()
+{
+	delete[] list;
+}
+
+template<class T, size_t N>
+inline const T & FixedList<T, N>::get(unsigned int index) const
+{
+	
+}
+
+template<class T, size_t N>
+inline int FixedList<T, N>::getFirstIndex(const T & t) const
+{
+	return 0;
+}
+
+template<class T, size_t N>
+inline size_t FixedList<T, N>::size() const
+{
+	return size_t();
+}
+
+template<class T, size_t N>
+inline size_t FixedList<T, N>::capacity() const
+{
+	return size_t();
+}
+
+template<class T, size_t N>
+inline bool FixedList<T, N>::add(const T & t)
+{
+	return false;
+}
+
+template<class T, size_t N>
+inline T FixedList<T, N>::remove(const T & t)
+{
+	return T();
+}
+
+template<class T, size_t N>
+inline T & FixedList<T, N>::operator[](unsigned int index) const
+{
+	// TODO: insert return statement here
+}
