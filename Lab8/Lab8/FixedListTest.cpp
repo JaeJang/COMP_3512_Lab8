@@ -17,7 +17,7 @@ int main() {
 	cout << "size = " << list.size() << endl;
 	cout << "capacity = " << list.capacity() << endl;
 	cout << "index 2 = " << list[2] << endl;
-	TObject temp(2);
+	TObject temp(11);
 	cout << "index 2 removed " << list.remove(temp) << endl;
 	cout << "index 2 = " << list[2] << endl;
 	cout << "size = " << list.size() << endl;
