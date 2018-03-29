@@ -17,10 +17,12 @@ public:
 
 private:
 	T[] list;
+	size_t index;
 };
 
 template<class T, size_t N>
 inline FixedList<T, N>::FixedList()
+	:index {0}
 {
 	list = new T[N];
 }
@@ -52,7 +54,7 @@ inline size_t FixedList<T, N>::size() const
 template<class T, size_t N>
 inline size_t FixedList<T, N>::capacity() const
 {
-	return size_t();
+	return N;
 }
 
 template<class T, size_t N>
