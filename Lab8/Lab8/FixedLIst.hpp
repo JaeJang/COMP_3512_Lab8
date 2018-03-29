@@ -73,7 +73,28 @@ inline bool FixedList<T, N>::add(const T & t)
 template<class T, size_t N>
 inline T FixedList<T, N>::remove(const T & t)
 {
-	return T();
+	T removed;
+	for (int i = 0; i < maxIndex + 1; ++i) {
+		if (list[i] == t) {
+			removed = t;
+			if (i == 0) {
+				--maxIndex;
+				list[i] = NULL;
+				return  removed;
+			}
+			int j;
+			for (j = i; j < maxIndex + 1; ++j) {
+				if(j != maxIndex)
+					list[j] = list[j + 1];
+			}
+			list[j] = NULL;
+			--maxIndex;
+
+			return removed;
+
+		}
+	}
+	return NULL;
 }
 
 template<class T, size_t N>
