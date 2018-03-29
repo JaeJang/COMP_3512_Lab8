@@ -17,12 +17,12 @@ public:
 
 private:
 	T[] list;
-	size_t index;
+	size_t maxIndex;
 };
 
 template<class T, size_t N>
 inline FixedList<T, N>::FixedList()
-	:index {0}
+	:maxIndex{-1}
 {
 	list = new T[N];
 }
@@ -36,7 +36,9 @@ inline FixedList<T, N>::~FixedList()
 template<class T, size_t N>
 inline const T & FixedList<T, N>::get(unsigned int index) const
 {
-	
+	if (index > maxIndex || index < 0) {
+		throw std::invalid_argument("Out of bound!");
+	}
 }
 
 template<class T, size_t N>
