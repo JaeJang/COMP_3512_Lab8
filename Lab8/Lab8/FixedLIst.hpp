@@ -50,7 +50,7 @@ inline int FixedList<T, N>::getFirstIndex(const T & t) const
 template<class T, size_t N>
 inline size_t FixedList<T, N>::size() const
 {
-	return size_t();
+	return maxIndex + 1 ;
 }
 
 template<class T, size_t N>
@@ -62,7 +62,12 @@ inline size_t FixedList<T, N>::capacity() const
 template<class T, size_t N>
 inline bool FixedList<T, N>::add(const T & t)
 {
-	return false;
+	if (maxIndex + 1 >= N) {
+		return false;
+	}
+	++maxIndex;
+	list[maxIndex] = t;
+	return true;
 }
 
 template<class T, size_t N>
