@@ -24,17 +24,23 @@ private:
 	size_t arrSize;
 };
 
+//Constructor
 template<class T, size_t N>
 inline FixedList<T, N>::FixedList()
 	:arrSize{0}
 {
 }
 
+//Destructor
 template<class T, size_t N>
 inline FixedList<T, N>::~FixedList()
 {
 }
 
+//Get an object in specific index
+//PRE	: passing index should be unsigned integer
+//POST	: NULL
+//RETURN: an object in the list with an index
 template<class T, size_t N>
 inline const T & FixedList<T, N>::get(unsigned int index) const
 {
@@ -44,6 +50,11 @@ inline const T & FixedList<T, N>::get(unsigned int index) const
 	return list[index];
 }
 
+
+//Get index of first matched object in the list
+//PRE	: NULL
+//POST	: NULL
+//RETURN: the index of the first occurance
 template<class T, size_t N>
 inline int FixedList<T, N>::getFirstIndex(const T & t) const
 {
@@ -55,18 +66,31 @@ inline int FixedList<T, N>::getFirstIndex(const T & t) const
 	return -1;
 }
 
+//Get size of list
+//PRE	: NULL
+//POST	: NULL
+//REUTNR: the size of the list
 template<class T, size_t N>
 inline size_t FixedList<T, N>::size() const
 {
 	return arrSize;
 }
 
+//Get capacity of list
+//PRE	: NULL
+//POST	: NULL
+//RETURN: capacity of list
 template<class T, size_t N>
 inline size_t FixedList<T, N>::capacity() const
 {
 	return N;
 }
 
+//Add an passed object into list
+//PRE	: NULL
+//POST	: if the size if not exceeded the capacity
+//		  list adds the object
+//RETURN: true if it's added successfully
 template<class T, size_t N>
 inline bool FixedList<T, N>::add(const T & t)
 {
@@ -78,6 +102,10 @@ inline bool FixedList<T, N>::add(const T & t)
 	return true;
 }
 
+//Remove specific object from list
+//PRE	: NULL
+//POST	: if there is a matched object, remove it from list
+//RETURN: removed object
 template<class T, size_t N>
 inline T FixedList<T, N>::remove(const T & t)
 {
@@ -106,6 +134,7 @@ inline T FixedList<T, N>::remove(const T & t)
 	return NULL;
 }
 
+//Overloaded [] operator
 template<class T, size_t N>
 inline T  FixedList<T, N>::operator[](unsigned int index) const
 {
@@ -116,7 +145,7 @@ inline T  FixedList<T, N>::operator[](unsigned int index) const
 	return list[index];
 }
 
-
+//Overloaded insertion operator
 template<class T, size_t N>
 std::ostream & operator<<(std::ostream & out, const FixedList<T, N>& obj)
 {
