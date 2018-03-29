@@ -100,5 +100,9 @@ inline T FixedList<T, N>::remove(const T & t)
 template<class T, size_t N>
 inline T & FixedList<T, N>::operator[](unsigned int index) const
 {
-	// TODO: insert return statement here
+	if (index < 0 || index > maxIndex) {
+		throw std::invalid_argument("Out of bound!!");
+	}
+
+	return list[index];
 }
