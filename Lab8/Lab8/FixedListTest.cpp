@@ -1,4 +1,5 @@
 #include "FixedLIst.hpp"
+#include "TestObject.hpp"
 #include <iostream>
 
 constexpr size_t SIZE = 10;
@@ -6,17 +7,21 @@ constexpr size_t SIZE = 10;
 int main() {
 	using namespace std;
 
-	FixedList<int, SIZE> list;
+	FixedList<TObject, SIZE> list;
 
-	for (int i = 0; i < SIZE - 2; ++i) {
-		list.add(i);
+	for (size_t i = 0; i < SIZE - 2; ++i) {
+		list.add(TObject(i));
 	}
 
-	cout << list.size() << endl;
-	cout << list.capacity() << endl;
-	cout << list.get(3) << endl;
-	cout << list.getFirstIndex(2) << endl;
-	//list[5];
+	cout << list;
+	cout << "size = " << list.size() << endl;
+	cout << "capacity = " << list.capacity() << endl;
+	cout << "index 2 = " << list[2] << endl;
+	TObject temp(2);
+	cout << "index 2 removed " << list.remove(temp) << endl;
+	cout << "index 2 = " << list[2] << endl;
+	cout << "size = " << list.size() << endl;
+
 	system("PAUSE");
 	
 

@@ -18,6 +18,9 @@
     <ClInclude Include="FixedLIst.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TestObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FixedListTest.cpp">

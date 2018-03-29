@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="FixedLIst.hpp" />
+    <ClInclude Include="TestObject.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FixedListTest.cpp" />

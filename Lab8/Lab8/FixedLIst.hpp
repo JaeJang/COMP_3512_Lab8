@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <stdexcept>
 
 template<class T, size_t N>
@@ -13,7 +14,10 @@ public:
 	size_t capacity() const;
 	bool add(const T & t);
 	T remove(const T& t);
-	T & operator[](unsigned int index) const;
+	T  operator[](unsigned int index) const;
+
+	template<class T, size_t N>
+	friend std::ostream & operator<<(std::ostream & out, const FixedList<T, N> & obj);
 
 private:
 	T list[N];
@@ -29,7 +33,6 @@ inline FixedList<T, N>::FixedList()
 template<class T, size_t N>
 inline FixedList<T, N>::~FixedList()
 {
-	//delete[] list;
 }
 
 template<class T, size_t N>
@@ -79,7 +82,7 @@ template<class T, size_t N>
 inline T FixedList<T, N>::remove(const T & t)
 {
 	T removed;
-	for (int i = 0; i < arrSize; ++i) {
+	for (size_t i = 0; i < arrSize; ++i) {
 		if (list[i] == t) {
 			removed = t;
 			if (i == 0) {
@@ -87,7 +90,7 @@ inline T FixedList<T, N>::remove(const T & t)
 				list[i] = NULL;
 				return  removed;
 			}
-			int j;
+			size_t j;
 			for (j = i; j < arrSize; ++j) {
 				if(j != arrSize - 1)
 					list[j] = list[j + 1];
@@ -103,11 +106,23 @@ inline T FixedList<T, N>::remove(const T & t)
 }
 
 template<class T, size_t N>
-inline T & FixedList<T, N>::operator[](unsigned int index) const
+inline T  FixedList<T, N>::operator[](unsigned int index) const
 {
 	if (index < 0 || index >= arrSize) {
 		throw std::invalid_argument("Out of bound!!");
 	}
 
 	return list[index];
+}
+
+
+template<class T, size_t N>
+std::ostream & operator<<(std::ostream & out, const FixedList<T, N>& obj)
+{
+	for (size_t i = 0; i < obj.size(); ++i) {
+		out << obj.list[i] << "  ";
+	}
+	out << std::endl;
+
+	return out;
 }
