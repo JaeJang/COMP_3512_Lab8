@@ -92,10 +92,11 @@ inline T FixedList<T, N>::remove(const T & t)
 			}
 			size_t j;
 			for (j = i; j < arrSize; ++j) {
-				if(j != arrSize - 1)
+				if (j != arrSize - 1) {
 					list[j] = list[j + 1];
+				}
 			}
-			list[j] = NULL;
+			list[j - 1] = NULL;
 			--arrSize;
 
 			return removed;

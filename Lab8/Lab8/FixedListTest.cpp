@@ -9,7 +9,7 @@ int main() {
 
 	FixedList<TObject, SIZE> list;
 
-	for (size_t i = 0; i < SIZE - 2; ++i) {
+	for (size_t i = 0; i < SIZE; ++i) {
 		list.add(TObject(i));
 	}
 

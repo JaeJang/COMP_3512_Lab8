@@ -17,7 +17,7 @@ public:
 			return true;
 		return false;
 	}
-
+	int getData() { return data; }
 
 
 private:
