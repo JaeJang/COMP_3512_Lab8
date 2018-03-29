@@ -44,7 +44,12 @@ inline const T & FixedList<T, N>::get(unsigned int index) const
 template<class T, size_t N>
 inline int FixedList<T, N>::getFirstIndex(const T & t) const
 {
-	return 0;
+	for (int i = 0; i < maxIndex + 1; ++i) {
+		if (list[i] == t) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 template<class T, size_t N>
