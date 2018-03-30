@@ -83,20 +83,18 @@ namespace UnitTest
 
 		TEST_METHOD(GetException)
 		{
-			FixedList<TObject, 10> list;
-			for (size_t i = 0; i < 9; ++i) {
-				list.add(TObject(i));
-			}
-			bool exception_thrown = false;
-			try {
+			
+			auto func = [this] {throwException(); };
+			Assert::ExpectException<std::invalid_argument>(func);
+
+		}
+			void throwException() {
+				FixedList<TObject, 10> list;
+				for (size_t i = 0; i < 9; ++i) {
+					list.add(TObject(i));
+				}
 				list.get(11);
 			}
-			catch (std::invalid_argument & err) {
-				exception_thrown = true;
-			}
-
-			Assert::AreEqual(true, exception_thrown);
-		}
 
 		TEST_METHOD(GetException2)
 		{
@@ -197,19 +195,15 @@ namespace UnitTest
 
 		TEST_METHOD(operatorTestException)
 		{
+			auto func = [this] {operatorException();  };
+			Assert::ExpectException<std::invalid_argument>(func);
+		}
+		void operatorException() {
 			FixedList<TObject, 10> list;
 			for (size_t i = 0; i < 8; ++i) {
 				list.add(TObject(i));
 			}
-			bool exception_thrown = false;
-			try {
-				list[10];
-			}
-			catch (std::invalid_argument & err) {
-				exception_thrown = true;
-			}
-
-			Assert::AreEqual(true, exception_thrown);
+			list[10];
 		}
 
 		TEST_METHOD(operatorTestException2)
